@@ -1,0 +1,58 @@
+{
+  "name": "Yathit Email Tracker for Gmail",
+  "short_name": "Email Tracker for Gmail",
+  "description": "Easily track all your emails sent",
+  "version": "0.16.7",
+  "manifest_version": 2,
+
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "css": ["css/inj.css"],
+      "js": ["lib/categ_letters_numbers.js",
+        "lib/normalizer_lowercase_nomark.js",
+        "lib/normalizer_lowercase.js",
+        "js/environment.js",
+        "js/run-content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "background": {
+    "scripts": ["lib/categ_letters_numbers.js",
+      "lib/normalizer_lowercase_nomark.js",
+      "lib/normalizer_lowercase.js",
+      "js/environment.js",
+      "js/run-event-page.js"],
+    "persistent": false
+  },
+
+  "web_accessible_resources": [
+    "setup.html",
+    "option-page.html",
+    "popup.html",
+    "host-permission.html",
+    "inj-template.html",
+    "jsc/*",
+    "image/*"],
+
+  "content_security_policy": "script-src 'self' https://ydn-src-1.storage.googleapis.com https://www.yathit.com  https://ssl.google-analytics.com https://www.google.com/; object-src 'self'; img-src 'self' https://ssl.gstatic.com https://ssl.google-analytics.com",
+
+  "permissions":  ["storage", "https://mail.google.com/*"],
+
+  "externally_connectable": {
+    "matches": ["https://mail.google.com/*", "https://www.yathit.com/*"]
+  },
+
+  "optional_permissions": ["*://*/*" ],
+
+  "options_page": "option-page.html",
+
+  "icons": {
+    "16": "image/logo-gmail-16.png",
+    "64": "image/logo-gmail-64.png",
+    "128": "image/logo-gmail-128.png"
+  },
+
+  "minimum_chrome_version": "37"
+}

@@ -1,0 +1,129 @@
+/** Setup file CSS */
+.ydn-crm {
+  font-family: arial, sans-serif;
+  font-size: 12px; }
+  .ydn-crm INPUT {
+    font-family: arial, sans-serif;
+    /* Overridden by font: -webkit-small-control; */
+    font-size: 100%; }
+  .ydn-crm INPUT[type=text], .ydn-crm INPUT[type=email], .ydn-crm INPUT[type=tel], .ydn-crm TEXTAREA {
+    transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD; }
+  .ydn-crm INPUT[type=text]:focus, .ydn-crm INPUT[type=email]:focus, .ydn-crm INPUT[type=tel]:focus, .ydn-crm TEXTAREA:focus {
+    box-shadow: 0 0 5px #51cbee;
+    border: 1px solid #51cbee; }
+  .ydn-crm INPUT:invalid {
+    color: red; }
+
+.left {
+  float: left;
+  display: inline-block;
+  z-index: 0; }
+
+.right {
+  float: right;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 1; }
+
+/* toolbar items */
+.toolbar > * {
+  padding-left: 4px; }
+
+.statusbar {
+  height: 14px;
+  overflow: hidden;
+  border-bottom: solid thin #d3d3d3;
+  background-color: white;
+  padding: 4px 2px;
+  margin: 0;
+  font-size: small; }
+
+.sticky-right .statusbar {
+  position: relative; }
+
+.flex-bar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; }
+  .flex-bar > .center {
+    flex-grow: 1; }
+
+.svg-button {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3px;
+  margin: 0 2px;
+  padding: 2px; }
+
+.svg-button:hover {
+  background-color: #dddddd; }
+
+dialog.ydn-crm, .ydn-crm dialog {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  padding: 8px 48px 16px 48px; }
+  dialog.ydn-crm .content, .ydn-crm dialog .content {
+    max-height: 20em;
+    overflow: auto; }
+  dialog.ydn-crm .button-bar, .ydn-crm dialog .button-bar {
+    padding: 8px; }
+
+body.setup {
+  font-size: 100%; }
+
+summary {
+  font-size: 120%; }
+
+details > * > .title {
+  padding-left: 20px; }
+
+details.success > * > .title {
+  background: url("chrome-extension://__MSG_@@extension_id__/image/tick.svg") left center no-repeat; }
+
+details {
+  padding: 8px; }
+
+#step-list summary > span {
+  cursor: pointer; }
+
+#li-host.success .deny {
+  display: none; }
+
+#li-host.fail .granted {
+  display: none; }
+
+summary::-webkit-details-marker {
+  display: none; }
+
+summary > span {
+  padding-left: 4px; }
+
+details > div {
+  padding: 18px 8px 8px 8px; }
+
+summary:after {
+  border: thin solid lightgrey;
+  border-radius: 3px;
+  content: "+";
+  float: left;
+  font-weight: bold;
+  margin: 0 0 0 0;
+  padding: 0;
+  text-align: center;
+  width: 20px;
+  line-height: 1em; }
+
+summary:hover:after {
+  color: white;
+  background-color: black; }
+
+details[open] summary:after {
+  content: "-"; }
+
+/*# sourceMappingURL=setup.css.map */

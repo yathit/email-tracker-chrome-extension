@@ -1,0 +1,17 @@
+<project name="gmail-tracker" basedir="." default="crx">
+    <dirname property="gmail-tracker.dir" file="${ant.file.gmail-tracker}"/>
+    <property name="home.dir" location="${user.home}"/>
+
+    <target name="crx" description="prepare crx folder">
+        <sequential>
+            <delete file="extension.zip"/>
+            <zip basedir="${gmail-tracker.dir}" destfile="extension.zip"
+                 includes="manifest.json,*.html,css/*,lib/*.js,jsc/*,image/**,js/**">
+
+            </zip>
+        </sequential>
+
+    </target>
+
+
+</project>

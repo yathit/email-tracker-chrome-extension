@@ -1,0 +1,110 @@
+.ydn-crm {
+  font-family: arial, sans-serif;
+  font-size: 12px; }
+  .ydn-crm INPUT {
+    font-family: arial, sans-serif;
+    /* Overridden by font: -webkit-small-control; */
+    font-size: 100%; }
+  .ydn-crm INPUT[type=text], .ydn-crm INPUT[type=email], .ydn-crm INPUT[type=tel], .ydn-crm TEXTAREA {
+    transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD; }
+  .ydn-crm INPUT[type=text]:focus, .ydn-crm INPUT[type=email]:focus, .ydn-crm INPUT[type=tel]:focus, .ydn-crm TEXTAREA:focus {
+    box-shadow: 0 0 5px #51cbee;
+    border: 1px solid #51cbee; }
+  .ydn-crm INPUT:invalid {
+    color: red; }
+
+.left {
+  float: left;
+  display: inline-block;
+  z-index: 0; }
+
+.right {
+  float: right;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 1; }
+
+/* toolbar items */
+.toolbar > * {
+  padding-left: 4px; }
+
+.statusbar {
+  height: 14px;
+  overflow: hidden;
+  border-bottom: solid thin #d3d3d3;
+  background-color: white;
+  padding: 4px 2px;
+  margin: 0;
+  font-size: small; }
+
+.sticky-right .statusbar {
+  position: relative; }
+
+.flex-bar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; }
+  .flex-bar > .center {
+    flex-grow: 1; }
+
+.svg-button {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3px;
+  margin: 0 2px;
+  padding: 2px; }
+
+.svg-button:hover {
+  background-color: #dddddd; }
+
+dialog.ydn-crm, .ydn-crm dialog {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  padding: 8px 48px 16px 48px; }
+  dialog.ydn-crm .content, .ydn-crm dialog .content {
+    max-height: 20em;
+    overflow: auto; }
+  dialog.ydn-crm .button-bar, .ydn-crm dialog .button-bar {
+    padding: 8px; }
+
+body.popup {
+  min-height: 5em;
+  min-width: 20em; }
+
+#content > ul {
+  padding-left: 4px;
+  list-style: none; }
+
+footer {
+  right: 0;
+  left: 0;
+  clear: both;
+  position: fixed;
+  bottom: 0;
+  z-index: 100; }
+
+#status-bar {
+  clear: both;
+  height: 14px;
+  overflow: hidden;
+  border: solid thin #d3d3d3;
+  border-top: solid thin #ffffff;
+  background: #d3d3d3;
+  padding: 4px 2px;
+  margin: 0;
+  font-size: small; }
+
+ul {
+  list-style: none;
+  padding-left: 0; }
+
+#status-bar-content span {
+  padding: 0 2px; }
+
+/*# sourceMappingURL=popup.css.map */
