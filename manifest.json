@@ -1,8 +1,8 @@
 {
   "name": "Yathit Email Tracker for Gmail",
   "short_name": "Email Tracker for Gmail",
-  "description": "Easily track all your emails sent",
-  "version": "0.16.7",
+  "description": "Easily track all your emails sent from Gmail",
+  "version": "0.16.13",
   "manifest_version": 2,
 
   "content_scripts": [
@@ -44,7 +44,7 @@
     "matches": ["https://mail.google.com/*", "https://www.yathit.com/*"]
   },
 
-  "optional_permissions": ["*://*/*" ],
+  "optional_permissions": ["https://mail.google.com/*" ],
 
   "options_page": "option-page.html",
 
