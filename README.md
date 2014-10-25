@@ -16,6 +16,13 @@ IP address can used to locate geo position precision to City level.
 
 This extension require a backend server to track image access log. We are using Google appengine, which also provide IP look up.
 
+## Developer
+
+This is part of [Yathit CRMInInbox](https://github.com/yathit/sugarcrm-gmail-chrome-extension) suite. See development details there.
+
+
+You should be able to load this repo folder as [unpacked Chrome Extension](https://developer.chrome.com/extensions/getstarted#unpacked). You will need compiles dependency files in "jsc" folder, which are available in http://ydn-src-1.storage.googleapis.com/
+
 
 
 
