@@ -115,7 +115,7 @@
   </details>
 </template>
 <template id="gdata-credentail-template">
-  <h3>Google GData</h3>
+  <h3>Google Services</h3>
   <div class="widget-content">
     <div class="authorize" style="display: none">
       <a>Authorize</a>
@@ -212,6 +212,17 @@
       </div>
     </div>
   </div>
+</template>
+
+<template id="tracking-setting-template">
+  <section class="tracking-setting">
+    <h3>Email Tracking</h3>
+    <div class="default-tracking-selection">
+      <input type="radio" name="default-tracking" value="always" title="All your email send will include tracking beacon."> Always track<br>
+      <input type="radio" name="default-tracking" value="disable"> Disable tracking<br>
+      <input type="radio" name="default-tracking" value="" title="You can select whether you want to track or not before sending email." checked> Enable tracking<br>
+    </div>
+  </section>
 </template>
 
 </body>
