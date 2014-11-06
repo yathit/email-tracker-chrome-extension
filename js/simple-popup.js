@@ -27,7 +27,6 @@
  * @constructor
  */
 SimplePopup = function() {
-
 };
 
 
@@ -35,9 +34,18 @@ SimplePopup = function() {
  * Run the app.
  */
 SimplePopup.prototype.run = function() {
+  this.refresh();
+};
+
+
+/**
+ * Refresh UI.
+ */
+SimplePopup.prototype.refresh = function() {
+
   var key = 'popup-content';
   chrome.storage.local.get(key, function(json) {
-    console.log(json);
+    // console.log(json);
     if (json[key]) {
       var content = json[key];
       var ul = document.createElement('ul');
@@ -47,7 +55,7 @@ SimplePopup.prototype.run = function() {
         li.appendChild(el);
         ul.appendChild(li);
       }
-      var root = document.getElementById('main');
+      var root = document.getElementById('feed');
       root.appendChild(ul);
       ul.addEventListener('click', SimplePopup.onClick);
     }

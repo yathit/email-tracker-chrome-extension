@@ -2151,7 +2151,7 @@ footer {
   font-size: 90%; }
 
 #app-content {
-  margin-top: 2.6em; }
+  margin: 2.6em 4px 4px 4px; }
   #app-content section {
     padding: 2px 4px; }
 
