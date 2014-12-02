@@ -9,7 +9,7 @@
 
 (function() {
 
-  console.log('yathit content script running');
+  // console.log('yathit content script running');
   var uid = 'ij' + Math.random();
   var scriptLoaded = false;
   var i = 0;

@@ -181,9 +181,6 @@ dialog.ydn-crm, .ydn-crm dialog {
   height: 20px;
   margin: 4px 0; }
 
-.toolbar > * {
-  margin-left: 4px; }
-
 .crm-template {
   position: absolute;
   right: 2px;
@@ -595,6 +592,132 @@ dialog.ydn-crm, .ydn-crm dialog {
  * See the COPYING file for details.
  */
 /*
+ * Standard styling for a goog.ui.DatePicker.
+ *
+ * @author arv@google.com (Erik Arvidsson)
+ */
+.goog-date-picker,
+.goog-date-picker th,
+.goog-date-picker td {
+  font: 13px Arial, sans-serif; }
+
+.goog-date-picker {
+  -moz-user-focus: normal;
+  -moz-user-select: none;
+  position: relative;
+  border: 1px solid #000;
+  float: left;
+  padding: 2px;
+  color: #000;
+  background: #c3d9ff;
+  cursor: default; }
+
+.goog-date-picker th {
+  text-align: center; }
+
+.goog-date-picker td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 1px 3px; }
+
+.goog-date-picker-menu {
+  position: absolute;
+  background: threedface;
+  border: 1px solid gray;
+  -moz-user-focus: normal;
+  z-index: 1;
+  outline: none; }
+
+.goog-date-picker-menu ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px; }
+
+.goog-date-picker-menu ul li {
+  cursor: default; }
+
+.goog-date-picker-menu-selected {
+  background: #ccf; }
+
+.goog-date-picker th {
+  font-size: .9em; }
+
+.goog-date-picker td div {
+  float: left; }
+
+.goog-date-picker button {
+  padding: 0px;
+  margin: 1px 0;
+  border: 0;
+  color: #20c;
+  font-weight: bold;
+  background: transparent; }
+
+.goog-date-picker-date {
+  background: #fff; }
+
+.goog-date-picker-week,
+.goog-date-picker-wday {
+  padding: 1px 3px;
+  border: 0;
+  border-color: #a2bbdd;
+  border-style: solid; }
+
+.goog-date-picker-week {
+  border-right-width: 1px; }
+
+.goog-date-picker-wday {
+  border-bottom-width: 1px; }
+
+.goog-date-picker-head td {
+  text-align: center; }
+
+/** Use td.className instead of !important */
+td.goog-date-picker-today-cont {
+  text-align: center; }
+
+/** Use td.className instead of !important */
+td.goog-date-picker-none-cont {
+  text-align: center; }
+
+.goog-date-picker-month {
+  min-width: 11ex;
+  white-space: nowrap; }
+
+.goog-date-picker-year {
+  min-width: 6ex;
+  white-space: nowrap; }
+
+.goog-date-picker-monthyear {
+  white-space: nowrap; }
+
+.goog-date-picker table {
+  border-collapse: collapse; }
+
+.goog-date-picker-other-month {
+  color: #888; }
+
+.goog-date-picker-wkend-start,
+.goog-date-picker-wkend-end {
+  background: #eee; }
+
+/** Use td.className instead of !important */
+td.goog-date-picker-selected {
+  background: #c3d9ff; }
+
+.goog-date-picker-today {
+  background: #9ab;
+  font-weight: bold !important;
+  border-color: #246 #9bd #9bd #246;
+  color: #fff; }
+
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+/*
  * Standard styling for goog.ui.Dialog.
  *
  * @author ssaviano@google.com (Steven Saviano)
@@ -649,6 +772,61 @@ dialog.ydn-crm, .ydn-crm dialog {
 
 .goog-buttonset-default {
   font-weight: bold; }
+
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+/*
+ * Standard styling for buttons created by goog.ui.FlatMenuButtonRenderer.
+ *
+ * @author attila@google.com (Attila Bodis)
+ * @author tlb@google.com (Thierry Le Boulenge)
+ */
+.goog-flat-menu-button {
+  background-color: #fff;
+  border: 1px solid #c9c9c9;
+  color: #333;
+  cursor: pointer;
+  font: normal 95%;
+  list-style: none;
+  margin: 0 2px;
+  outline: none;
+  padding: 1px 4px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: middle; }
+
+.goog-flat-menu-button-disabled * {
+  border-color: #ccc;
+  color: #999;
+  cursor: default; }
+
+.goog-flat-menu-button-hover {
+  border-color: #9cf #69e #69e #7af !important;
+  /* Hover border wins. */ }
+
+.goog-flat-menu-button-active {
+  background-color: #bbb;
+  background-position: bottom left; }
+
+.goog-flat-menu-button-focused {
+  border-color: #bbb; }
+
+.goog-flat-menu-button-caption {
+  padding-right: 10px;
+  vertical-align: top; }
+
+.goog-flat-menu-button-dropdown {
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: url(chrome-extension://__MSG_@@extension_id__/image/goog/editor/editortoolbar.png) no-repeat -388px 0;
+  position: absolute;
+  right: 2px;
+  top: 0;
+  vertical-align: top;
+  width: 7px; }
 
 /*
  * Copyright 2009 The Closure Library Authors. All Rights Reserved.
@@ -978,6 +1156,20 @@ dialog.ydn-crm, .ydn-crm dialog {
   border-top: 1px solid #ccc;
   margin: 4px 0;
   padding: 0; }
+
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+/*
+ * Standard styling for a goog.ui.PopupDatePicker.
+ *
+ * @author arv@google.com (Erik Arvidsson)
+ */
+.goog-date-picker {
+  position: absolute; }
 
 /*
  * Copyright 2009 The Closure Library Authors. All Rights Reserved.
@@ -2247,6 +2439,114 @@ a.maia-button.maia-button-secondary {
   border: thin solid #d3d3d3;
   padding: 8px; }
 
+.tracking-result {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 2px; }
+  .tracking-result > * {
+    align-self: center;
+    padding: 2px; }
+  .tracking-result svg {
+    vertical-align: middle; }
+
+.tracking-sidebar {
+  height: 100%;
+  border: solid thin LightBlue; }
+  .tracking-sidebar .sidebar-head {
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2px;
+    background-color: LightBlue; }
+    .tracking-sidebar .sidebar-head .head-icon {
+      fill: white; }
+    .tracking-sidebar .sidebar-head .center {
+      flex-grow: 1;
+      flex-shrink: 1; }
+    .tracking-sidebar .sidebar-head .stat-panel {
+      display: inline-block;
+      min-width: 16px;
+      height: 16px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 16px;
+      margin-top: 2px;
+      cursor: default;
+      color: white; }
+  .tracking-sidebar .sidebar-head > * {
+    margin: 2px; }
+  .tracking-sidebar .sidebar-content {
+    height: 250px;
+    overflow-y: auto;
+    margin-top: 4px; }
+    .tracking-sidebar .sidebar-content .toolbar {
+      margin-left: 4px; }
+  .tracking-sidebar input.picker {
+    width: 80px; }
+
+.tracking-feed .feeditem {
+  padding: 4px;
+  height: 1em;
+  overflow: hidden;
+  cursor: default; }
+
+.tracking-datalist .datalist-item {
+  padding: 4px; }
+  .tracking-datalist .datalist-item .stats {
+    flex-shrink: 0;
+    padding-left: 4px;
+    cursor: pointer; }
+  .tracking-datalist .datalist-item .lastopen {
+    white-space: pre;
+    color: gray;
+    font-style: italic; }
+  .tracking-datalist .datalist-item .label {
+    flex-shrink: 1; }
+  .tracking-datalist .datalist-item .center {
+    flex-grow: 1;
+    flex-shrink: 1; }
+  .tracking-datalist .datalist-item .symbol {
+    font-weight: bolder;
+    font-style: italic; }
+  .tracking-datalist .datalist-item .subject {
+    color: gray; }
+  .tracking-datalist .datalist-item .detail > * {
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+    flex-wrap: nowrap; }
+  .tracking-datalist .datalist-item .detail .hit-list {
+    display: flex;
+    flex-direction: column; }
+  .tracking-datalist .datalist-item .detail .hit-list .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    overflow: hidden; }
+    .tracking-datalist .datalist-item .detail .hit-list .item .center {
+      flex-grow: 1;
+      flex-shrink: 1;
+      text-overflow: ellipsis; }
+  .tracking-datalist .datalist-item .detail .item > * {
+    white-space: nowrap;
+    word-break: break-all;
+    overflow: hidden;
+    min-width: 16px;
+    display: inline-block;
+    padding: 0 1px; }
+.tracking-datalist .datalist-item > .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  height: 1.3em; }
+.tracking-datalist .datalist-item > * > * {
+  overflow: hidden; }
+
 .tracking-panel .content {
   padding: 4px; }
 .tracking-panel .stats {
@@ -2279,23 +2579,18 @@ a.maia-button.maia-button-secondary {
   .tracking-panel .tracking-detail-panel .pear-grid-row-header {
     background-color: mintcream; }
 
-.tracking-result {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding: 2px; }
-  .tracking-result > * {
-    align-self: center;
-    padding: 2px; }
-  .tracking-result svg {
-    vertical-align: middle; }
-
 .ydn-anchor-reply {
   display: inline-block;
   position: absolute;
   right: 0;
   top: 0;
   margin: 12px 6px 0 2px; }
+
+.tracking-table-heading .toolbar {
+  padding-bottom: 4px;
+  overflow: hidden; }
+  .tracking-table-heading .toolbar .right-bar {
+    float: right; }
 
 .pear-grid-cell-data-content.no-border,
 .pear-grid-row-highlight .pear-grid-cell-data-highlight .pear-grid-cell-data-content.no-border {
@@ -2616,36 +2911,6 @@ a.maia-button.maia-button-secondary {
   width: 100px;
   margin: 0;
   padding: 0; }
-
-.inj .goog-tab .home {
-  width: 16px;
-  height: 16px;
-  background: url("chrome-extension://__MSG_@@extension_id__/image/home.svg") center center no-repeat; }
-
-.inj .goog-tab .feed {
-  width: 16px;
-  height: 16px;
-  background: url("chrome-extension://__MSG_@@extension_id__/image/feed.svg") center center no-repeat; }
-
-.inj .goog-tab .setting {
-  width: 16px;
-  height: 16px;
-  background: url("chrome-extension://__MSG_@@extension_id__/image/setting.svg") center center no-repeat; }
-
-.inj .goog-tab .tools {
-  width: 16px;
-  height: 16px;
-  background: url("chrome-extension://__MSG_@@extension_id__/image/tools.svg") center center no-repeat; }
-
-.inj .goog-tab .search {
-  width: 16px;
-  height: 16px;
-  background: url("chrome-extension://__MSG_@@extension_id__/image/search.svg") center center no-repeat; }
-
-.inj .goog-tab .debug {
-  width: 16px;
-  height: 16px;
-  background: url("chrome-extension://__MSG_@@extension_id__/image/debug.svg") center center no-repeat; }
 
 .inj .sugar-panel {
   /* padding: 8px;

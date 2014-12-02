@@ -2,8 +2,18 @@
   "name": "Yathit Email Tracker",
   "short_name": "Email Tracker",
   "description": "Easily track all your emails sent from Gmail",
-  "version": "0.18.3",
+  "version": "0.19.5",
   "manifest_version": 2,
+
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": [
+        "js/environment.js",
+        "js/run-content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
 
   "background": {
     "scripts": [
@@ -23,13 +33,13 @@
 
   "content_security_policy": "script-src 'self' https://ydn-src-1.storage.googleapis.com https://www.yathit.com  https://ssl.google-analytics.com https://www.google.com/; object-src 'self'; img-src 'self' https://ssl.gstatic.com https://ssl.google-analytics.com",
 
-  "permissions":  ["storage", "activeTab", "declarativeContent"],
+  "permissions":  ["storage", "activeTab", "gcm", "notifications", "declarativeContent", "https://mail.google.com/*"],
 
   "externally_connectable": {
     "matches": ["https://mail.google.com/*", "https://www.yathit.com/*", "https://*.mail.live.com/*"]
   },
 
-  "optional_permissions": ["https://mail.google.com/*", "https://*.mail.live.com/*"],
+  "optional_permissions": ["https://*.mail.live.com/*"],
 
   "options_page": "option-page.html",
 
@@ -47,5 +57,5 @@
     "128": "image/logo-gmail-128.png"
   },
 
-  "minimum_chrome_version": "40"
+  "minimum_chrome_version": "38"
 }
