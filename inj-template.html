@@ -218,8 +218,21 @@
       <input type="radio" name="default-tracking" value="always" title="All your email send will include tracking beacon."> Always track<br>
       <input type="radio" name="default-tracking" value="track" title="All your email send will include tracking beacon unless you select not to."> Track normally<br>
       <input type="radio" name="default-tracking" value="" title="You can select whether you want to track or not before sending email." checked> Enable tracking<br>
-      <input type="radio" name="default-tracking" value="not-track" title="All your email send will not include tracking beacon unless you select to include."> Do no track normally<br>
+      <input type="radio" name="default-tracking" value="not-track" title="All your email send will not include tracking beacon unless you select to include."> Do not track normally<br>
       <input type="radio" name="default-tracking" value="disable"> Disable tracking<br>
+    </div>
+    <div class="donotrack-section">
+      <details>
+        <summary>Do Not Track</summary>
+        <div class="donottrack-content">
+          <div class="toolbar">
+            <input name="email-add" type="email" title="Email address of person not to be tracked"/>
+            <button name="add-email" title="Add to do not track list">Add</button>
+          </div>
+          <h5>List of emails not to be tracked</h5>
+          <ul class="dnt-list"></ul>
+        </div>
+      </details>
     </div>
   </section>
 </template>

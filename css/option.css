@@ -2,6 +2,12 @@
 .ydn-crm {
   font-family: arial, sans-serif;
   font-size: 12px; }
+  .ydn-crm h5 {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 0.5em; }
   .ydn-crm INPUT {
     font-family: arial, sans-serif;
     /* Overridden by font: -webkit-small-control; */
@@ -1918,12 +1924,14 @@ td.goog-date-picker-selected {
   padding: 20px 65px 10px 65px;
   border-collapse: separate;
   border-spacing: 2px; }
-
 .field-edit-dialog td:first-child {
-  text-align: right; }
-
+  text-align: right;
+  vertical-align: top;
+  line-height: 2em; }
 .field-edit-dialog td:last-child {
   text-align: left; }
+.field-edit-dialog .value input, .field-edit-dialog .value textarea {
+  width: 100%; }
 
 .field-edit-dialog .field {
   display: table-row; }
@@ -2192,7 +2200,7 @@ td.goog-date-picker-selected {
 .wgui-textinput-clear {
   position: absolute;
   right: 5px;
-  top: 4px;
+  top: 8px;
   padding-top: 1px;
   padding-left: 5px;
   display: none;
@@ -2362,6 +2370,20 @@ td.goog-date-picker-selected {
   overflow: hidden; }
   .tracking-table-heading .toolbar .right-bar {
     float: right; }
+
+.donotrack-section {
+  margin: 12px 0; }
+  .donotrack-section SUMMARY {
+    font-weight: bold; }
+  .donotrack-section SUMMARY:after {
+    float: left;
+    margin-right: 4px; }
+  .donotrack-section .donottrack-content {
+    margin: 8px 0; }
+  .donotrack-section LI.deleting .name {
+    color: gray; }
+  .donotrack-section LI.deleted .name {
+    text-decoration: line-through; }
 
 .pear-grid-cell-data-content.no-border,
 .pear-grid-row-highlight .pear-grid-cell-data-highlight .pear-grid-cell-data-content.no-border {

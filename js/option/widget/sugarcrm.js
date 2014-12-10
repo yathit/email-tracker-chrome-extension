@@ -95,7 +95,8 @@ SugarCrmWidget.prototype.onDomainBlur = function(e) {
     this.root.querySelector('input[name=username]').value = SugarCrmWidget.trialCredentials.user_name;
     this.root.querySelector('input[name=password]').value = SugarCrmWidget.trialCredentials.password;
   }
-  this.model.setInstanceUrl(domain, function(info) {
+  this.model.setInstanceUrl(domain);
+  this.model.getInfo(function(info) {
     var input_baseurl = this.root.querySelector('input[name=baseurl]');
     input_baseurl.value = '';
     if (info instanceof Error) {
