@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<dialog id="field-display-dialog">
+<dialog id="field-display-dialog" class="ydn-crm">
   <div class="header">
     <h3>Record field display setting</h3>
   </div>
@@ -16,17 +16,17 @@
   </div>
 </dialog>
 
-<dialog id="record-detail-dialog">
+<dialog id="record-detail-dialog" class="ydn-crm">
   <div class="header">
     <h3>Record detail</h3>
   </div>
   <div class="content"></div>
   <div class="button-bar">
-    <button class="ok" value="ok">OK</button>
+    <button value="ok">OK</button>
   </div>
 </dialog>
 
-<dialog id="record-delete-dialog">
+<dialog id="record-delete-dialog" class="ydn-crm">
   <div class="header">
     <h3>Confirm delete?</h3>
   </div>
@@ -62,20 +62,40 @@
   </table>
 </template>
 
-<template id="about-template">
-  <h3>Yathit CRMinInbox</h3>
+<template id="basic-about-template">
+  <h3 id="app-name"></h3>
   <p>
     Version: <span name="version"></span><br/>
     Website: <a href="https://crm.yathit.com" target="crm.yathit.com">https://crm.yathit.com</a>
   </p>
+  <div class="license-section">
+    <div class="content">
+      License: <span class="license"></span>
+    </div>
+    <p class="note">
+      <a href="https://www.yathit.com/portal/index.html">Manage license</a>
+      <a href="https://www.yathit.com/shop/crmininbox-subscription.html">Subscribe license</a>
+    </p>
+  </div>
 </template>
 
-<template id="tracking-about-template">
-  <h3>Yathit Email Tracker</h3>
-  <p>
-    Version: <span name="version"></span><br/>
-    Website: <a href="https://crm.yathit.com" target="crm.yathit.com">https://crm.yathit.com</a>
-  </p>
+<template id="admin-template">
+  <h3>Admin Portal</h3>
+
+</template>
+
+<template id="feedback-page-template">
+  <h3>Feedback</h3>
+  <div>
+    <ul></ul>
+  </div>
+</template>
+
+<template id="log-template">
+  <h3>Log</h3>
+  <div class="users">
+    <ol></ol>
+  </div>
 </template>
 
 <template id="sugarcrm-home-template">
@@ -85,6 +105,15 @@
   <section name="sugarcrm">
     <div id="sugarcrm-widget"></div>
   </section>
+  <section name="calendar">
+
+  </section>
+
+  <section>
+    <h3>System setting</h3>
+    <div id="logging-section"></div>
+  </section>
+  <p><br/></p>
 </template>
 
 
@@ -115,14 +144,14 @@
   </details>
 </template>
 <template id="gdata-credentail-template">
-  <h3>Google Services</h3>
+  <h3>Google Services Credential</h3>
   <div class="widget-content">
     <div class="authorize" style="display: none">
       <a>Authorize</a>
       <p>This extension requires your authorization to read and write your data from Google services.</p>
     </div>
     <div class="display" style="display: none">
-      <p>You have provided <span name="email"></span> Google contacts data available offline assess.<br />
+      <p>You have provided <span name="email"></span> Google services available offline assess.<br />
         Scopes: <span name="scopes"></span></p>
       <a href="#" name="gdata-token-revoke">Revoke</a>
     </div>
@@ -130,25 +159,32 @@
 </template>
 <template id="sugarcrm-template">
   <style>
-    #sugarcrm-domain {
+    .sugarcrm-domain {
       width: 30em;
     }
   </style>
   <h3>SugarCRM</h3>
   <div class="widget-content">
-    <div name="login-panel" style="display: none">
+    <div name="login-panel" class="login-panel" style="display: none">
       <div class="domain">
-        <div><label for="sugarcrm-domain">Enter your SugarCRM web site url</label></div>
-        <div><input name="domain" id="sugarcrm-domain" type="text" placeholder="https://tocahz5358.sugarcrm.com/index.php" />
-          <span class="message"></span></div>
+        <div><label>Enter your SugarCRM web site url</label></div>
+        <div><input name="domain" class="sugarcrm-domain" type="text" placeholder="https://tocahz5358.sugarcrm.com/index.php" />
+          <span class="message" name="message"></span></div>
       </div>
       <div>
-        <div><label for="sugarcrm-username">Username</label></div>
-        <div><input name="username" id="sugarcrm-username" type="text"/></div>
+        <div><label>Username</label></div>
+        <div><input name="username" class="sugarcrm-username" type="text"/></div>
       </div>
       <div>
-        <div><label for="sugarcrm-password">Password</label></div>
-        <div><input name="password" id="sugarcrm-password" type="password"/></div>
+        <div><label>Password</label></div>
+        <div><input name="password" class="sugarcrm-password" type="password"/></div>
+      </div>
+      <div>
+        <div><label for="sugarcrm-auth">Authentication</label>
+       <select name="sugarcrm-auth" id="sugarcrm-auth">
+          <option value="" selected>Default</option>
+          <option value="ldap">LDAP</option>
+        </select></div>
       </div>
       <div>
         <div class="message"></div>
@@ -156,12 +192,15 @@
       <div>
         <button name="login">Login</button>
       </div>
+      <div>
+        <p>Your SugarCRM username and password are NOT sent to any server except your SugarCRM server. Your SugarCRM username and password are stored in this browser with encryption.</p>
+      </div>
       <input name="baseurl" type="text" hidden/>
     </div>
     <div name="info-panel" style="display: none">
       <div>Host: <a name="instance"></a> <span name="instance-info"></span></div>
       <div>User: <span name="user"></span></div>
-      <div id="grant-host-permission" style="display: none">
+      <div name="grant-host-permission" style="display: none">
         <button>Grant host permission</button>
         <p>Your permission is required to connect your server from this extension.</p>
       </div>
@@ -172,8 +211,15 @@
       </p>
     </div>
     <div name="stats-panel" style="display: none">
-      <h4>Cached modules</h4>
-      <ul></ul>
+      <details>
+        <summary>Cached data</summary>
+        <p>List of cached module in this browser</p>
+        <ul></ul>
+        <p>
+          <button name="clear-cache">Clear cache</button>
+          <button name="update-now">Update now</button>
+        </p>
+      </details>
     </div>
   </div>
 </template>
@@ -188,6 +234,7 @@
 
     </div>
     <div class="hud-popup">
+      <div class="top-resizer"></div>
       <div class="popup-container">
         <div class="popup-header"></div>
         <div class="popup-content">
@@ -200,8 +247,7 @@
             </span>
             <span class="center-item"></span>
             <span class="right-item">
-                <a href="https://yathit.uservoice.com/" target="yathit.uservoice.com">Feedback</a> |&nbsp;
-                <a href="https://sites.google.com/a/yathit.com/ydn-crm-wiki/" target="help">Help</a>
+                <a href="http://crm.yathit.com/crmininbox/user-guide/index.html" target="user-guide" name="help">Help</a>
             </span>
           </div>
 
@@ -210,18 +256,111 @@
     </div>
   </div>
 </template>
+<template id="upload-dialog-template">
+  <div class="upload-dialog">
+    <div>
+      <label>File Name: </label><input name="file_name" type="text" class="value"/>
+    </div>
+    <div>
+      <label>Document Name: </label><input name="document_name" type="text" class="value"/>
+    </div>
+    <div>
+      <label>Description: </label><textarea name="description" class="value"></textarea>
+    </div>
+
+    <section name="rel-panel"></section>
+
+  </div>
+</template>
+
+<template id="archive-dialog-template">
+  <div class="archive-dialog">
+    <div>
+      <label>Subject: </label><input name="name" type="text" class="value"/>
+    </div>
+    <div style="display: none">
+      <label>Message id: </label><input name="message_id" type="text" class="value"/>
+    </div>
+    <section class="info">
+      <div><span class="word-count">0</span> words in this email content.
+
+      </div>
+    </section>
+    <section name="attachment">
+      <h4>Attachments</h4>
+      <ul></ul>
+    </section>
+    <section name="rel-panel">
+
+    </section>
+
+  </div>
+</template>
+<template id="record-patch-compare-template">
+  <div class="flex-bar record-patch-compare">
+    <div>
+      <h3>Original from server</h3>
+      <pre name="original"></pre>
+    </div>
+    <div>
+      <h3>Your edit</h3>
+      <pre name="patch"></pre>
+    </div>
+  </div>
+  <div class="record-patch-note">Only fields that are changed is shown.</div>
+</template>
+<template id="feedback-template">
+  <div class="feedback-panel">
+    <div>
+      <select>
+        <option value="feature">Feature request</option>
+        <option value="bug">Bug report</option>
+        <option value="suggestion">Suggestion</option>
+        <option value="discussion">Question</option>
+      </select>
+    </div>
+    <div>
+      <textarea class="message"></textarea>
+    </div>
+    <div style="display: none;" class="attachment">
+      Attachment:
+      <input name="page" type="checkbox"/> <a target="dom" name="page">page.html</a>
+      <span style="display: none;">
+      <input name="screenshot" type="checkbox"/> <a target="screenshot" name="page">screenshot.png</a>
+      </span>
+    </div>
+    <div>
+      <button value="submit">Submit</button>
+      <button value="close">Close</button>
+    </div>
+  </div>
+</template>
 
 <template id="tracking-setting-template">
   <section class="tracking-setting">
     <h3>Email Tracking</h3>
-    <div class="default-tracking-selection">
-      <input type="radio" name="default-tracking" value="always" title="All your email send will include tracking beacon."> Always track<br>
-      <input type="radio" name="default-tracking" value="track" title="All your email send will include tracking beacon unless you select not to."> Track normally<br>
-      <input type="radio" name="default-tracking" value="" title="You can select whether you want to track or not before sending email." checked> Enable tracking<br>
-      <input type="radio" name="default-tracking" value="not-track" title="All your email send will not include tracking beacon unless you select to include."> Do not track normally<br>
-      <input type="radio" name="default-tracking" value="disable"> Disable tracking<br>
+
+    <div class="default-tracking-selection widget-content">
+      <details>
+        <summary>Tracking preference</summary>
+        <input type="radio" name="default-tracking" value="always" title="All your email send will include tracking beacon."> Always track<br>
+        <input type="radio" name="default-tracking" value="track" title="All your email send will include tracking beacon unless you select not to."> Track normally<br>
+        <input type="radio" name="default-tracking" value="" title="You can select whether you want to track or not before sending email." checked> Enable tracking<br>
+        <input type="radio" name="default-tracking" value="not-track" title="All your email send will not include tracking beacon unless you select to include."> Do not track normally<br>
+        <input type="radio" name="default-tracking" value="disable"> Disable tracking<br>
+      </details>
+
     </div>
-    <div class="donotrack-section">
+
+    <div class="notification-section widget-content">
+      <details>
+        <summary>Notification</summary>
+        <input name="notify" type="checkbox" id="notify"/>
+        <label for="notify">Notify when recipient open a tracked email or click a tracked link</label>
+      </details>
+
+    </div>
+    <div class="donotrack-section  widget-content">
       <details>
         <summary>Do Not Track</summary>
         <div class="donottrack-content">
@@ -271,7 +410,7 @@
   </div>
   <div class="sidebar-content" style="display: none;">
     <div class="toolbar">
-      <input class="picker" placeholder="DD/MM/YYYY" title="Target date"/>
+      <input class="picker" type="date" title="Target date"/>
       <span class="select-view"></span>
     </div>
   </div>
@@ -294,6 +433,349 @@
     </div>
   </div>
 </template>
+<template id="template-tweet">
+  <li class="tweet-item">
+    <div class="text"></div>
+    <div class="tweet-footer">
+      <span class="location"></span>
+      <span class="time"></span>
+    </div>
+  </li>
+</template>
+<template id="template-detail-twitter">
 
+  <div class="header">
+    <div class="logo">
+      <img/>
+    </div>
+    <div class="content">
+      <div class="name">
+        <a target="_blank"></a>
+      </div>
+      <div class="description"></div>
+      <div class="head-footer">
+        <span>Followers <span class="followers"></span></span>
+        <span>Following <span class="following"></span></span>
+        <span class="location"></span>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="tweets">
+    </ul>
+  </div>
+</template>
+
+<template id="template-detail-googleplus">
+
+  <div class="header">
+    <div class="logo">
+      <img />
+    </div>
+    <div class="content">
+      <div class="name">
+        <a target="_blank"></a>
+      </div>
+      <div class="description"></div>
+      <div class="work"></div>
+      <div class="school"></div>
+      <div class="head-footer">
+
+        <span class="location"></span>
+      </div>
+    </div>
+  </div>
+</template>
+<template id="template-detail-linkedin">
+
+  <div class="header">
+    <div class="logo">
+      <img />
+    </div>
+    <div class="content">
+      <div class="name">
+        <a target="_blank"></a>
+      </div>
+      <div class="description"></div>
+      <div class="head-footer">
+        <span>Followers <span class="followers"></span></span>
+        <span>Following <span class="following"></span></span>
+        <span class="location"></span>
+      </div>
+    </div>
+  </div>
+</template>
+<template id="template-detail-angellist">
+
+  <div class="header">
+
+    <div class="content">
+      <div class="name">
+        <a target="_blank"></a>
+      </div>
+      <div class="description"></div>
+      <div class="roles"></div>
+      <div class="head-footer">
+        <span>Followers <span class="followers"></span></span>
+        <span class="location"></span>
+      </div>
+    </div>
+  </div>
+</template>
+<template id="template-detail-facebook">
+
+  <div class="header">
+    <div class="logo">
+      <img />
+    </div>
+    <div class="content">
+      <div class="name">
+        <a target="_blank"></a>
+      </div>
+      <div class="description"></div>
+      <div class="head-footer">
+        <span class="location"></span>
+      </div>
+    </div>
+  </div>
+</template>
+<template id="template-social-menu">
+  <div class="social-start-menu">
+    <div class="header">
+      <div class="logo">
+        <img />
+      </div>
+      <div class="content">
+        <div class="name">
+
+        </div>
+        <div class="description"></div>
+        <div class="head-footer">
+
+        </div>
+      </div>
+    </div>
+    <div class="employment"></div>
+    <div class="location"></div>
+    <div class="content">
+    </div>
+    <div>
+      Sources: <span class="sources"></span>
+    </div>
+  </div>
+</template>
+
+<template id="template-detail-generic">
+
+  <div class="header">
+    <div class="logo">
+      <img />
+    </div>
+    <div class="content">
+      <div class="name">
+        <a target="_blank"></a>
+      </div>
+      <div class="description"></div>
+      <div class="head-footer">
+        <span>Followers <span class="followers"></span></span>
+        <span>Following <span class="following"></span></span>
+        <span class="location"></span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="calendar-setting-panel-template">
+  <h3 title="Google calendar use for synchronizing with SugarCRM">Google Calendar</h3>
+  <div class="widget-content">
+  <details>
+    <summary>Synchronization</summary>
+    <div>
+      <input type="checkbox" id="enable-calendar-sync"/>
+      <label for="enable-calendar-sync">Sync Google calendar with SugarCRM Meetings</label><br/>
+      <p name="sync-calendar-panel" style="display: none;">
+        Sync Calender name: <a href="#" name="sync-calender-name" title="Current calendar to Sync with CRM. Click to change."></a>
+      </p>
+      <p class="message"></p>
+    </div>
+  </details>
+  </div>
+</template>
+
+<template id="select-calendar-template">
+  <button name="new-calendar" title="Create a new Google calendar">Create New...</button><br/><br/>
+  Select a Google calendar to sync: <select name="select-calendar" title="Select a Google calendar to Sync with CRM">
+</select><br/>
+  <p>A sync calendar must be owned by you and not your primary calendar. You can manage your calendars in <a href="https://www.google.com/calendar/">Google Calendar</a>.</p>
+</template>
+
+<template id="sugarcrm-sync-template">
+  <div class="header">
+    <span class="title">Synchronization</span>
+    <span></span>
+    <a class="domain" title="Go to SugarCRM portal" target="_blank"></a>
+  </div>
+  <div class="content"></div>
+  <div class="footer"></div>
+</template>
+<template id="sync-content-template">
+  <div class="sync-contact">
+    <div class="header">
+      <select name="select-panel">
+        <option value="gdata-contact">Gmail contacts</option>
+        <option value="accounts">Accounts</option>
+        <option value="contacts">Contacts</option>
+        <option value="leads">Leads</option>
+      </select>
+      <span class="toolbar"></span>
+
+    </div>
+    <div class="content"></div>
+  </div>
+</template>
+<template id="sync-panel-template">
+  <div class="header"></div>
+  <div class="content">
+    <ul class="infinite-scroll"></ul>
+  </div>
+  <div class="footer">
+
+  </div>
+</template>
+<template id="sync-gdata-toolbar-template">
+  <select name="order-by" title="Order by">
+    <option value="" selected>Id</option>
+    <option value="updated.$t">Last modified</option>
+    <option value="name">Name</option>
+  </select>
+  <select name="direction" title="Direction of order">
+    <option value="asc" selected>Ascending</option>
+    <option value="des">Descending</option>
+  </select>
+  <span name="gdata-contact-count"></span> contacts
+  <button name="sync">Sync Now</button>
+
+</template>
+<template id="sync-record-toolbar-template">
+  <select name="order-by" title="Order by">
+    <option value="" selected>Id</option>
+    <option value="date_modified">Last modified</option>
+    <option value="name">Name</option>
+  </select>
+  <select name="direction" title="Direction of order">
+    <option value="asc" selected>Ascending</option>
+    <option value="des">Descending</option>
+  </select>
+  <span name="record-count"></span> records.
+
+</template>
+<template id="sync-pair-template">
+  <li class="sync-pair">
+    <div class="primary"></div>
+    <div class="secondary"></div>
+  </li>
+</template>
+<template id="sync-gdata-primary-template">
+  <div class="gdata">
+    <div class="header">
+      <span class="badge-icon google"></span>
+      <a name="name" target="_blank" title="View in Gmail contact"></a>
+    </div>
+    <div class="content">
+      <span name="emails"></span>
+    </div>
+    <div class="footer">
+      <span name="import" class="inline-block" title="Import to SugarCRM"></span>
+    </div>
+  </div>
+</template>
+<template id="sync-record-primary-template">
+  <div class="record">
+    <div class="header">
+      <span name="name"></span>
+    </div>
+    <div class="content">
+      <span name="emails"></span>
+    </div>
+    <div class="footer">
+      <span class="svg-button" name="export"></span>
+    </div>
+  </div>
+</template>
+<template id="sync-gdata-secondary-template">
+  <div class="record">
+    <div class="header">
+      <span class="icon record-header-icon"></span>
+      <a name="label" target="_blank" title="View in SugarCRM"></a>
+    </div>
+    <div>
+      <button name="link" title="Synchronize with Gmail contact">Link</button>
+    </div>
+  </div>
+</template>
+<template id="sync-record-secondary-template">
+  <div class="gdata">
+    <div class="header">
+      <span class="icon record-header-icon"></span>
+      <a name="label" target="_blank" title="View in SugarCRM"></a>
+    </div>
+    <div>
+      <button name="sync" title="Synchronize with Gmail contact">Sync</button>
+    </div>
+  </div>
+</template>
+<template id="hover-context-panel-template">
+  <div class="hover-context-panel">
+    <div class="header">
+      <div class="flex-bar">
+        <span class="icon"></span>
+      <span class="center">
+        <a></a>
+      </span>
+        <span class="menu-holder"></span>
+      </div>
+      <div class="header-content"></div>
+    </div>
+    <div class="content"></div>
+    <div class="footer"></div>
+  </div>
+</template>
+<template id="logging-pref-template">
+  <div class="logging-pref widget-content">
+    <details>
+      <summary>Logging preference</summary>
+      <div>
+        <label title="Analytic logging help us improving user experience and adding more features.">
+          <input type="checkbox" name="analytic"/>
+          Enable analytic logging
+        </label>
+      </div>
+      <div>
+        <label title="Debug logging help us hard to find bugs.">
+          <input type="checkbox" name="debug"/>
+          Enable debug logging
+        </label>
+      </div>
+      <p class="license message">
+        A subscription is required to change logging setting.
+      </p>
+      <div>
+        See our <a target="_blank" href="https://www.yathit.com/privacy.html">privacy policy</a>.
+      </div>
+    </details>
+  </div>
+</template>
+<template id="record-item-template">
+  <div class="record-item">
+    <div class="record-header flex-bar">
+      <span class="icon"></span>
+      <span class="center title"></span>
+    </div>
+    <div class="content">
+
+      <span class="center summary"></span>
+    </div>
+  </div>
+</template>
 </body>
 </html>

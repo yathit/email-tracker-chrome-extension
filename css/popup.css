@@ -22,6 +22,11 @@
     border: 1px solid #51cbee; }
   .ydn-crm INPUT:invalid {
     color: red; }
+  .ydn-crm .inline-block {
+    display: inline-block; }
+  .ydn-crm .centered-div {
+    margin: 4px;
+    text-align: center; }
 
 .left {
   float: left;
@@ -75,14 +80,84 @@ dialog.ydn-crm, .ydn-crm dialog {
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   padding: 8px 48px 16px 48px; }
   dialog.ydn-crm .content, .ydn-crm dialog .content {
-    max-height: 20em;
+    max-height: 30em;
+    max-width: 40em;
     overflow: auto; }
   dialog.ydn-crm .button-bar, .ydn-crm dialog .button-bar {
     padding: 8px; }
+    dialog.ydn-crm .button-bar > button, .ydn-crm dialog .button-bar > button {
+      margin: 0 4px; }
+
+.dropdown p {
+  display: inline-block;
+  font-weight: bold; }
+
+select.dropdown {
+  border: 0 !important;
+  /*Removes border*/
+  -webkit-appearance: none;
+  /*Removes default chrome and safari style*/
+  background: url("http://jonathanphz.tk/dropdown_arrow.png") no-repeat;
+  background-position: 80px 8px;
+  /*Position of the background-image*/
+  width: 100px;
+  /*Width of select dropdown to give space for arrow image*/
+  height: 20px;
+  /*fix for mac input height*/
+  text-indent: 0.01px;
+  /* Removes default arrow from firefox*/
+  text-overflow: "";
+  /*Removes default arrow from firefox*/
+  cursor: pointer;
+  /*My custom style for fonts*/
+  color: #1455a2; }
+  select.dropdown option {
+    text-align: center; }
+
+DETAILS.left-ex SUMMARY:after {
+  float: left;
+  margin-right: 4px; }
 
 /*
 * Closure Library CSS
 */
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+/*
+ * Styles for goog.ui.ac.AutoComplete and its derivatives.
+ * Note: these styles need some work to get them working properly at various
+ * font sizes other than the default.
+ *
+ * @author pupius@google.com (Daniel Pupius)
+ * @author annams@google.com (Srinivas Annam)
+ */
+/*
+ * TODO(annams): Rename (here and in renderer.js) to specify class name as
+ * goog-autocomplete-renderer
+ */
+.ac-renderer {
+  font: normal 13px Arial, sans-serif;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #666;
+  -moz-box-shadow: 2px 2px 2px rgba(102, 102, 102, 0.4);
+  -webkit-box-shadow: 2px 2px 2px rgba(102, 102, 102, 0.4);
+  width: 300px; }
+
+.ac-row {
+  cursor: pointer;
+  padding: .4em; }
+
+.ac-highlighted {
+  font-weight: bold; }
+
+.ac-active {
+  background-color: #b2b4bf; }
+
 /*
  * Copyright 2009 The Closure Library Authors. All Rights Reserved.
  *
@@ -1684,6 +1759,17 @@ td.goog-date-picker-selected {
 .icon-box {
   display: inline-block;
   margin: auto auto; }
+
+.google.badge-icon {
+  fill: #0266C8; }
+
+.badge-icon {
+  display: inline-block;
+  border: 1px #0266C8 solid;
+  border-radius: 3px;
+  padding: 3px;
+  height: 14px;
+  margin-right: 4px; }
 
 .status-base {
   font-size: 90%;

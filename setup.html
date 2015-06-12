@@ -12,11 +12,12 @@
     <details id="li-login">
         <summary>
         <span class="no">1</span>
-        <span class="title">Login</span>
+        <span class="title">Login to Yathit</span>
         </summary>
         <div class="detail">
             <span id="user-name"></span>
             <a id="user-login">Login</a>
+            <span id="register" style="display: none;">or <a href="https://www.yathit.com/portal/index.html">Register</a></span>
         </div>
     </details>
     <details id="li-token">
@@ -36,6 +37,7 @@
         <div class="detail">
 
         </div>
+      <p style="font-size: 90%;">Your SugarCRM username and password are NOT sent to any server except your SugarCRM server. They are stored in this browser with encryption.</p>
     </details>
     <details id="li-host">
         <summary>
@@ -94,7 +96,7 @@
         }
     </style>
     <h3>SugarCRM</h3>
-    <div name="login-panel" style="display: none">
+    <div name="login-panel" class="login-panel"  style="display: none">
         <div class="domain">
             <div><label for="sugarcrm-domain">Enter your SugarCRM web site url</label></div>
             <div><input name="domain" id="sugarcrm-domain" type="text" placeholder="https://tocahz5358.sugarcrm.com/index.php" />
@@ -108,6 +110,13 @@
             <div><label for="sugarcrm-password">Password</label></div>
             <div><input name="password" id="sugarcrm-password" type="password"/></div>
         </div>
+      <div>
+        <div><label for="sugarcrm-auth">Authentication</label>
+          <select name="sugarcrm-auth" id="sugarcrm-auth">
+            <option value="" selected>Default</option>
+            <option value="ldap">LDAP</option>
+          </select></div>
+      </div>
         <div>
             <div class="message"></div>
         </div>
