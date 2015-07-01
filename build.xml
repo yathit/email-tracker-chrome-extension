@@ -6,12 +6,16 @@
         <sequential>
             <delete file="extension.zip"/>
             <zip basedir="${gmail-tracker.dir}" destfile="extension.zip"
-                 includes="manifest.json,*.html,css/*,lib/*.js,jsc/*,image/**,js/**">
+                 includes="manifest.json,*.html,css/*,lib/*.js,jsc/*,image/**,js/**,_locales/**">
 
             </zip>
         </sequential>
 
     </target>
-
+    <target name="publish" description="publish to web store">
+        <exec dir="${gmail-tracker.dir}" executable="/bin/bash">
+            <arg line="publish-script.sh"/>
+        </exec>
+    </target>
 
 </project>

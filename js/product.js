@@ -15,35 +15,36 @@
 
 
 /**
- * @fileoverview Define CRMinInbox environment variables.
+ * @fileoverview Define product feature variables.
  *
  * @author kyawtun@yathit.com (Kyaw Tun)
  */
 
 
 /**
- * @namespace base namespace for CRMinInbox app.
+ * App name.
+ * @type {string}
  */
-window.YathitCrm = {};
+YathitCrm.name = 'Yathit Email Tracker';
 
 
 /**
- * @enum {string} version number base on tracks.
+ * These variable change default behaviour of the product.
+ * All variables are optional and default behaviour is assume.
+ * @enum {namespace} Yathit CRM product manifest.
  */
-YathitCrm.Version = {
-  release: '3.3.7'
+YathitCrm.Product = {
+  GData: {
+    Contacts: {
+
+    }
+  },
+  /**
+   * By defining `Tracking`, email tracking is available without setup.
+   */
+  Tracking: {
+
+  }
 };
 
 
-/**
- * @namespace base namespace for SugarCRM module.
- */
-YathitCrm.sugarcrm = {};
-
-
-/**
- * @enum {string} version number base on tracks.
- */
-YathitCrm.sugarcrm.Version = {
-  release: '3.3.7'
-};
