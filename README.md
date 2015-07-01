@@ -24,5 +24,8 @@ This is part of [Yathit CRMInInbox](https://github.com/yathit/sugarcrm-gmail-chr
 You should be able to load this repo folder as [unpacked Chrome Extension](https://developer.chrome.com/extensions/getstarted#unpacked). You will need compiles dependency files in "jsc" folder, which are available in http://ydn-src-1.storage.googleapis.com/
 
 
+Licensing
+---------
 
+All UI components, data models and base utilities are released under GNU Lesser General Public License. Backend and database synchronization will not be open source, but license to partners.
 
